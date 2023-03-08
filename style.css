@@ -19,11 +19,14 @@ body {
     text-align: center;
 }
 
-#alter{
+#id-alter{
     display: block;
+    font-weight: bold;
+    font-family: arial, sans-serif;
   }
   
-  #alter.active{
+  #id-alter.active{
+    color: white;
     display: none;
   }
 
@@ -51,10 +54,21 @@ body {
     background-color: white;
     border-width: initial;
     border-style: none;
-    margin: 20px 130px 0px;
     padding: 0px 12px;
     border-radius: 10px;
     transition: color 0.5s ease-in-out 0s;
+}
+
+button:focus, button:active {
+    outline: none;
+}
+
+.button.active {
+    
+}
+
+.hidden {
+    display: none;
 }
 
 .input{
