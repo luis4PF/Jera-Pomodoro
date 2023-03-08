@@ -15,7 +15,17 @@ body {
     border-color: black;
     border-radius: 20px;
     border-style: solid;
+    position: absolute;
+    text-align: center;
 }
+
+#alter{
+    display: block;
+  }
+  
+  #alter.active{
+    display: none;
+  }
 
 .clock{
     color: black;
@@ -69,6 +79,7 @@ body {
     display: flex;
     align-items: center;
     font-family: arial, sans-serif;
+    font-weight: bold;
 }
 
 .button-pomodoro{

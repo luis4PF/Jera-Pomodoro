@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="pomodoro">
-        <div style="padding-left: 20px;">
-            <button class="button-pomodoro">
+        <div style="padding-left: 20px;" id="buttons">
+            <button class="button-pomodoro" id="id-pomodoro">
                 POMODORO
             </button >
             <button class="button-pomodoro">
@@ -28,13 +28,14 @@
         </div>
         <div class="div-input">
             <label for="">INSIRA O TEMPO DESEJADO:</label>
-            <input class="input" type="number" id="time-input" min="1" max="60" value="25">
+            <input class="input" type="number" 
+            id="time-input" min="1" max="60" value="25">
         </div>
-        <div>
+        <div class="div-input">
             <label for="">CONTADOR</label>
-            <span></span>
+            <span id="id-counter"></span>
         </div>
-        <div>
+        <div class="div-input">
             <button class="button">
                 COMEÇAR
             </button>
