@@ -8,34 +8,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div>
-        <div>
-            <button>
+    <div class="pomodoro">
+        <div style="padding-left: 20px;">
+            <button class="button-pomodoro">
                 POMODORO
-            </button>
-            <button>
+            </button >
+            <button class="button-pomodoro">
                 INTERVALO
             </button>
-            <button>
+            <button class="button-pomodoro">
                 INTERVALO LONGO
             </button>
         </div>
 
-        <div>
+        <div class="clock">
             <span>1</span>
             <span>:</span>
             <span>00</span>
         </div>
-        <div>
+        <div class="div-input">
             <label for="">INSIRA O TEMPO DESEJADO:</label>
-            <input type="number" name="" id="">
+            <input class="input" type="number" id="time-input" min="1" max="60" value="25">
         </div>
         <div>
             <label for="">CONTADOR</label>
             <span></span>
         </div>
         <div>
-            <button>
+            <button class="button">
                 COMEÇAR
             </button>
         </div>

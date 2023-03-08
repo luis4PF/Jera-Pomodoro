@@ -1,0 +1,86 @@
+body {
+    background-color: beige;
+}
+
+.pomodoro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    padding-left: 35px;
+    padding-right: 35px;
+    border-color: black;
+    border-radius: 20px;
+    border-style: solid;
+}
+
+.clock{
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 15rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    font-family: arial, sans-serif;
+}
+
+
+
+.button{
+    cursor: pointer;
+    box-shadow: rgb(65, 65, 65) 0px 6px 0px;
+    font-size: 22px;
+    height: 55px;
+    text-transform: uppercase;
+    color: hsl(0, 0%, 0%);
+    width: 200px;
+    background-color: white;
+    border-width: initial;
+    border-style: none;
+    margin: 20px 130px 0px;
+    padding: 0px 12px;
+    border-radius: 10px;
+    transition: color 0.5s ease-in-out 0s;
+}
+
+.input{
+    cursor: pointer;
+    box-shadow: 10px 10px rgb(0, 0, 0) 0px 6px 0px;
+    font-size: 22px;
+    padding: 15px;
+
+    color: hsl(0, 0%, 0%);
+    width: 300px;
+    background-color: white;
+    border-style: none;
+    border-radius: 10px;
+    transition: color 0.5s ease-in-out 0s;
+}
+
+.div-input{
+    padding: 0px 12px;
+    color: black;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    font-family: arial, sans-serif;
+}
+
+.button-pomodoro{
+    font-size: 16px;
+    height: 28px;
+    cursor: pointer;
+    box-shadow: none;
+    font-weight: 300;
+    color: #000000;
+    border: 1px solid transparent;
+    margin: 0px;
+    border-radius: 4px;
+    padding: 2px 12px;
+    background: none;
+}
