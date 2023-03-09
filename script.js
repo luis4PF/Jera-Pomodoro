@@ -16,7 +16,7 @@ mainButton.addEventListener('click', () => {
     if (action === 'start') {
         startTimer();
         alterButton.classList.add('active')
-    }    else {
+    } else {
         stopTimer();
         alterButton.classList.remove('active')
     }
@@ -39,7 +39,7 @@ function getRemainingTime(endTime) {
     return {
         total,
         minutes,
-        secconds,
+        seconds,
     };
 }
 
@@ -51,7 +51,7 @@ function handleTimeChange() {
 let count = 0;
 
 function startTimer() {
-    let { total } = timer.RemainingTime;
+    let { total } = timer.remainingTime;
     const counter = document.getElementById('id-counter');
     const endTime = Date.parse(new Date()) + total * 1000;
 
@@ -63,10 +63,10 @@ function startTimer() {
     mainButton.classList.add('active');
 
     interval = setInterval(function () {
-        timer.RemainingTime = getRemainingTime(endTime);
+        timer.remainingTime = getRemainingTime(endTime);
         updateClock();
 
-        total = timer.RemainingTime.total;
+        total = timer.remainingTime.total;
         if (total <= 0) {
             clearInterval(interval);
 
@@ -74,8 +74,7 @@ function startTimer() {
                 case 'pomodoro':
                     if (timer.sessions % timer.longbreakInterval === 0) {
                         switchMode('longBreak');
-                    }
-                    else {
+                    } else {
                         switchMode('shortBreak');
                     }
                     break;
@@ -118,8 +117,11 @@ function updateClock(){
     sec.textContent = seconds;
 
     const text = 
-        timer.mode = 'pomodoro' ? 'Volte ao trabalho' : 'Hora de descansar';
-    document.title = `${minutes}:${seconds} - ${text}`;
+        timer.mode === 'pomodoro' ? 'Volte ao trabalho' : 'Hora de descansar';
+    document.title = `${minutes}:${seconds} — ${text}`;
+
+    const progress = document.getElementById('id-progress');
+    progress.value = timer[timer.mode] * 60 - timer.remainingTime.total;
 }
 
 function switchMode(mode){
@@ -130,7 +132,9 @@ function switchMode(mode){
         seconds: 0,
     };
 
-    document.querySelectorAll('button[data-mode]').forEach(e => e.classList.remove('active'));
+    document
+        .querySelectorAll('button[data-mode]')
+        .forEach(e => e.classList.remove('active'));
     document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
     document.body.style.backgroundColor = `var(--${mode})`;
     document.getElementById('id-progress').setAttribute('max', timer.remainingTime.total);
