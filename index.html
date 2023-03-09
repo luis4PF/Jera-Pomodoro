@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
     <title>Jera Pomodoro</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <main class="app">
         <progress id="id-progress" value="0"></progress>
@@ -15,44 +17,45 @@
                 <button data-mode="pomodoro" 
                 class=" button active button" id="id-pomodoro">
                     POMODORO
-                </button >
-                <button data-mode="shortbreak" 
+                </button>
+                <button data-mode="shortBreak" 
                 class=" button active button" id="id-shortbrake">
                     INTERVALO
                 </button>
-                <button data-mode="longbreak" 
+                <button data-mode="longBreak" 
                 class=" button active button" id="id-longbrake">
                     INTERVALO LONGO
                 </button>
             </div>
-    
+
             <div class="clock" id="id-clock">
-                <span>1</span>
-                <span>:</span>
-                <span>00</span>
+                <span id="id-min">1</span>
+                <span class="separator">:</span>
+                <span id="id-sec">00</span>
             </div>
             <div id="id-alter">
                 <label for="">INSIRA O TEMPO DESEJADO</label>
-                <input class="input" type="number" 
-                id="time-input" min="1" max="60" value="25">
+                <input class="input" 
+                type="number" id="time-input" min="1" max="60" value="25">
             </div>
             <div class="div-input">
                 <label for="">CONTADOR</label>
                 <span id="id-counter"></span>
             </div>
-            <div class="div-input">
-                <button class="button" id="id-btn">
-                    COMEÇAR
+                <button class="button" data-action="start" id="id-btn">
+                    Start
                 </button>
-            </div>
-            <div hidden>
-                <audio src="backtowork.wav"></audio>
-                <audio src="breaktime.wav"></audio>
-                <audio src="longbrake.wav">a</audio>
-            </div>
-            <script src="script.js"></script>
         </div>
     </main>
-    
+    <div class="hidden">
+        <audio src="backtowork.wav"></audio>
+        <audio src="breaktime.wav"></audio>
+        <audio src="longbrake.wav">a</audio>
+    </div>
+    <script src="script.js"></script>
+    </div>
+
+
 </body>
+
 </html>
