@@ -2,6 +2,7 @@ body {
     background-color: beige;
 }
 
+
 .pomodoro {
     position: absolute;
     top: 50%;
@@ -42,7 +43,6 @@ body {
 }
 
 
-
 .button{
     cursor: pointer;
     box-shadow: rgb(65, 65, 65) 0px 6px 0px;
@@ -59,17 +59,7 @@ body {
     transition: color 0.5s ease-in-out 0s;
 }
 
-button:focus, button:active {
-    outline: none;
-}
 
-.button.active {
-    
-}
-
-.hidden {
-    display: none;
-}
 
 .input{
     cursor: pointer;
@@ -108,4 +98,16 @@ button:focus, button:active {
     border-radius: 4px;
     padding: 2px 12px;
     background: none;
+}
+
+button:focus, button:active {
+    outline: none;
+}
+
+.button-pomodoro.active {
+    border-color: #000000;
+}
+
+.hidden {
+    display: none;
 }
