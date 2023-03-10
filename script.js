@@ -1,5 +1,5 @@
 const timer = {
-    pomodoro: 1,
+    pomodoro: 25,
     shortBreak: 5,
     longBreak: 15,
     longbreakInterval: 4,
@@ -13,7 +13,7 @@ const alterButton = document.getElementById('id-alter');
 
 mainButton.addEventListener('click', () => {
     const { action } = mainButton.dataset;
-    if (action === 'start') {
+    if (action === 'COMEÇAR') {
         startTimer();
         alterButton.classList.add('active')
     } else {
@@ -58,8 +58,8 @@ function startTimer() {
 
     if (timer.mode === 'pomodoro') timer.sessions++;
 
-    mainButton.dataset.action = 'stop';
-    mainButton.textContent = 'stop';
+    mainButton.dataset.action = 'PARAR';
+    mainButton.textContent = 'PARAR';
     mainButton.classList.add('active');
 
     interval = setInterval(function () {
@@ -101,8 +101,8 @@ function startTimer() {
 function stopTimer(){
     clearInterval(interval);
 
-    mainButton.dataset.action = 'start'
-    mainButton.textContent = 'start';
+    mainButton.dataset.action = 'COMEÇAR'
+    mainButton.textContent = 'COMEÇAR';
     mainButton.classList.remove('active');
 }
 

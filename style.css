@@ -4,13 +4,14 @@ body {
 }
 
 :root {
-    --pomodoro: hsl(223, 25%, 40%);
-    --shortBreak: hsl(48, 23%, 40%);
-    --longBreak: hsl(105, 16%, 40%);
+    --pomodoro: hsl(224, 100%, 12%);
+    --shortBreak: hsl(0, 100%, 12%);
+    --longBreak: hsl(294, 100%, 17%);
 }
 
 
 .pomodoro {
+    background-color: #000;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -28,6 +29,7 @@ body {
 }
 
 #id-alter {
+    color: #fff;
     display: block;
     font-weight: bold;
     font-family: arial, sans-serif;
@@ -39,7 +41,7 @@ body {
 }
 
 .clock {
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 50px;
     margin-bottom: 30px;
     font-size: 15rem;
@@ -50,23 +52,66 @@ body {
 }
 
 
-.button {
-    cursor: pointer;
-    box-shadow: rgb(65, 65, 65) 0px 6px 0px;
-    font-size: 22px;
-    height: 55px;
-    text-transform: uppercase;
-    color: hsl(0, 0%, 0%);
-    width: 200px;
-    background-color: white;
-    border-width: initial;
-    border-style: none;
-    padding: 0px 12px;
-    border-radius: 10px;
-    transition: color 0.5s ease-in-out 0s;
+/* CSS */
+.button-56 {
+  align-items: center;
+  background-color: #ffffff;
+  border: 2px solid #111;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #111;
+  cursor: pointer;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  height: 48px;
+  justify-content: center;
+  line-height: 24px;
+  max-width: 100%;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
+.button-56:after {
+  background-color: #ffffff;
+  border-radius: 8px;
+  content: "";
+  display: block;
+  height: 48px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  top: -1px;
+  transform: translate(8px, 8px);
+  transition: transform .2s ease-out;
+  z-index: -1;
+}
 
+.button-56:hover:after {
+  transform: translate(0, 0);
+}
+
+.button-56:hover {
+  outline: 0;
+}
+
+@media (min-width: 768px) {
+  .button-56 {
+    padding: 0 40px;
+  }
+}
+
+.button-56.active {
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    box-shadow: #000;
+    
+}
 
 .input {
     box-shadow: 10px 10px rgb(0, 0, 0) 0px 6px 0px;
@@ -83,7 +128,7 @@ body {
 
 .div-input {
     padding: 0px 12px;
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 50px;
     margin-bottom: 30px;
     display: flex;
@@ -92,23 +137,56 @@ body {
     font-weight: bold;
 }
 
-.button-pomodoro {
-    font-size: 16px;
-    height: 28px;
-    cursor: pointer;
-    box-shadow: none;
-    font-weight: 300;
-    color: #000000;
-    border: 1px solid transparent;
-    margin: 0px;
-    border-radius: 4px;
-    padding: 2px 12px;
-    background: none;
+/* CSS */
+.button-50 {
+  appearance: button;
+  background-color: #000;
+  background-image: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 5px 10px 0;
+  overflow: visible;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: none;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
-button:focus,
-button:active {
-    outline: none;
+.button-50:focus {
+  text-decoration: none;
+}
+
+.button-50:hover {
+  text-decoration: none;
+}
+
+.button-50:active {
+  box-shadow: rgba(0, 0, 0, .125) 0 3px 5px inset;
+  outline: 0;
+}
+
+.button-50:not([disabled]):active {
+  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-50 {
+    padding: 12px 50px;
+  }
 }
 
 .button-pomodoro.active {

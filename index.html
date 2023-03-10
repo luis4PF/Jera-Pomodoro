@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -15,21 +15,21 @@
         <div class="pomodoro">
             <div class="button-group buttons" id="buttons">
                 <button data-mode="pomodoro" 
-                class=" button active button" id="id-pomodoro">
+                class=" button active button-56" id="id-pomodoro">
                     POMODORO
                 </button>
                 <button data-mode="shortBreak" 
-                class=" button active button" id="id-shortbrake">
+                class=" button active button-56" id="id-shortbrake">
                     INTERVALO
                 </button>
                 <button data-mode="longBreak" 
-                class=" button active button" id="id-longbrake">
+                class=" button active button-56" id="id-longbrake">
                     INTERVALO LONGO
                 </button>
             </div>
 
             <div class="clock" id="id-clock">
-                <span id="id-min">1</span>
+                <span id="id-min">25</span>
                 <span class="separator">:</span>
                 <span id="id-sec">00</span>
             </div>
@@ -39,18 +39,18 @@
                 type="number" id="time-input" min="1" max="60" value="25">
             </div>
             <div class="div-input">
-                <label for="">CONTADOR</label>
+                <label for="">CONTADOR:</label>
                 <span id="id-counter"></span>
             </div>
-                <button class="button" data-action="start" id="id-btn">
-                    Start
+                <button class="button-50" data-action="COMEÇAR" id="id-btn">
+                    COMEÇAR
                 </button>
         </div>
     </main>
     <div class="hidden">
-        <audio src="backtowork.wav"></audio>
-        <audio src="breaktime.wav"></audio>
-        <audio src="longbrake.wav">a</audio>
+        <audio src="backtowork.wav" data-sound="pomodoro"></audio>
+        <audio src="breaktime.wav" data-sound="shortBreak"></audio>
+        <audio src="longbrake.wav" data-sound="longBreak">a</audio>
     </div>
     <script src="script.js"></script>
     </div>
