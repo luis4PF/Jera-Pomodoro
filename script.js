@@ -1,7 +1,7 @@
 const timer = {
-    pomodoro: 25,
-    shortBreak: 5,
-    longBreak: 15,
+    pomodoro: 0.1,
+    shortBreak: 0.1,
+    longBreak: 0.1,
     longbreakInterval: 4,
     sessions: 0,
 };
@@ -90,9 +90,6 @@ function startTimer() {
 
             document.querySelector(`[data-sound="${timer.mode}"]`).play();
 
-            count++;
-            counter.textContent = count;
-
             startTimer();
         }
     }, 1000);
@@ -167,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    switchMode('pomoodoro');
+    switchMode('pomodoro');
 });
 
 
