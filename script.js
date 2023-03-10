@@ -1,27 +1,24 @@
 // define o tempo de cada objeto
 const timer = {
-    pomodoro: 0.1,
-    shortBreak: 0.1,
-    longBreak: 0.1,
-    longbreakInterval: 4,
+    pomodoro: 0,
+    shortBreak: 0,
+    longBreak: 0,
+    longbreakInterval: 2,
     sessions: 0,
 };
-
-let interval;
 
 const mainButton = document.getElementById('id-btn');
 const alterButton = document.getElementById('id-alter');
 
 // ao clicar no botão 'COMEÇAR' a função  handleTimeChange() não fica visível
 mainButton.addEventListener('click', () => {
-    const { action } = mainButton.dataset;
+    const action = mainButton.dataset.action;
     if (action === 'COMEÇAR') {
         startTimer();
-        alterButton.classList.add('active')
     } else {
         stopTimer();
-        alterButton.classList.remove('active')
     }
+    alterButton.classList.toggle('active')
 });
 
 const modeButtons = document.querySelector('#buttons');
@@ -33,12 +30,9 @@ timeInput.addEventListener('change', handleTimeChange);
 // Esta função calcula o tempo restante entre o tempo atual e um horário de término especificado.
 function getRemainingTime(endTime) {
     const time = Date.parse(new Date());
-    const different = endTime - time;
-
-    const total = Number.parseInt(different / 1000, 10);
-    const minutes = Number.parseInt((total / 60) % 60, 10);
-    const seconds = Number.parseInt(total % 60, 10);
-
+    const total = Math.floor((endTime - time) / 1000);
+    const minutes = Math.floor((total / 60) % 60);
+    const seconds = total % 60;
     return {
         total,
         minutes,
@@ -56,47 +50,44 @@ let count = 0;
 
 // função responsável por começar o timer
 function startTimer() {
-    let { total } = timer.remainingTime;
     const counter = document.getElementById('id-counter');
-    const endTime = Date.parse(new Date()) + total * 1000;
+    const endTime = Date.parse(new Date()) + timer.remainingTime.total * 1000;
 
 
-    if (timer.mode === 'pomodoro') timer.sessions++;
+    if (timer.mode === 'pomodoro') {
+        timer.sessions++;
+    }
 
     mainButton.dataset.action = 'PARAR';
     mainButton.textContent = 'PARAR';
     mainButton.classList.add('active');
 
-    interval = setInterval(function () {
+    interval = setInterval(() => {
         timer.remainingTime = getRemainingTime(endTime);
         updateClock();
 
-        total = timer.remainingTime.total;
-        if (total <= 0) {
+        if (timer.remainingTime.total <= 0) {
             clearInterval(interval);
 
-            switch (timer.mode) {
-                case 'pomodoro':
-                    if (timer.sessions % timer.longbreakInterval === 0) {
-                        switchMode('longBreak');
-                    } else {
-                        switchMode('shortBreak');
-                    }
-                    break;
-                default:
-                    switchMode('pomodoro');
+            if (timer.mode === 'pomodoro') {
+                count++;
+                counter.textContent = count;
+
+                if (timer.sessions % timer.longbreakInterval === 0) {
+                    switchMode('longBreak');
+                } else {
+                    switchMode('shortBreak');
+                }
+            } else {
+                switchMode('pomodoro');
             }
 
             if (Notification.permission === 'granted') {
-                const text =
-                    timer.mode === 'pomodoro' ? 'Seu intervalo acabou!' : 'Tire um tempo para descansar';
+                const text = timer.mode === 'pomodoro' ? 'Seu intervalo acabou!' : 'Tire um tempo para descansar';
                 new Notification(text);
             }
 
             document.querySelector(`[data-sound="${timer.mode}"]`).play();
-
-            count++;
-            counter.textContent = count;
 
             startTimer();
         }
@@ -112,39 +103,48 @@ function stopTimer() {
     mainButton.classList.remove('active');
 }
 
+const min = document.getElementById('id-min');
+const sec = document.getElementById('id-sec');
+const progress = document.getElementById('id-progress');
+
+// A esta função é responsável por atualizar o relógio da aplicação
 function updateClock() {
-    const { remainingTime } = timer;
-    const minutes = `${remainingTime.minutes}`.padStart(2, '0');
-    const seconds = `${remainingTime.seconds}`.padStart(2, '0');
+    const { minutes, seconds } = timer.remainingTime;
+    const mins = `${minutes}`.padStart(2, '0');
+    const secs = `${seconds}`.padStart(2, '0');
 
-    const min = document.getElementById('id-min');
-    const sec = document.getElementById('id-sec');
-    min.textContent = minutes;
-    sec.textContent = seconds;
+    [min.textContent, sec.textContent] = [mins, secs];
 
-    const text =
-        timer.mode === 'pomodoro' ? 'Volte ao trabalho' : 'Hora de descansar';
-    document.title = `${minutes}:${seconds} — ${text}`;
+    updateTitle();
+    updateProgress();
 
-    const progress = document.getElementById('id-progress');
-    progress.value = timer[timer.mode] * 60 - timer.remainingTime.total;
 }
 
+function updateTitle() {
+    const { minutes, seconds } = timer.remainingTime;
+    const text = timer.mode === 'pomodoro' ? 'Volte ao trabalho!' : 'Hora de decansar';
+    document.title = `${minutes}:${seconds} — ${text} `;
+}
+
+function updateProgress() {
+    const { mode, remainingTime } = timer;
+    progress.value = timer[mode] * 60 - remainingTime.total;
+}
+
+// indica qual modo deve ser ativado no temporizador
 function switchMode(mode) {
+    const { [mode]: minutes } = timer;
     timer.mode = mode;
     timer.remainingTime = {
-        total: timer[mode] * 60,
-        minutes: timer[mode],
+        total: minutes * 60,
+        minutes,
         seconds: 0,
     };
 
-    document
-        .querySelectorAll('button[data-mode]')
-        .forEach(e => e.classList.remove('active'));
-    document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+    const modeButtons = document.querySelectorAll('button[data-mode]');
+    modeButtons.forEach(button => button.classList.toggle
+        ('active', button.dataset.mode === mode));
     document.body.style.backgroundColor = `var(--${mode})`;
-    document.getElementById('id-progress').setAttribute('max', timer.remainingTime.total);
-
     updateClock();
 }
 
@@ -157,23 +157,17 @@ function handleMode(event) {
     stopTimer();
 }
 
+// Permissão se o usuário deseja receber as notificações ou não
 document.addEventListener('DOMContentLoaded', () => {
-    if ('Notification' in window) {
-        if (
-            Notification.permission !== 'granted' &&
-            Notification.permission !== 'denied'
-        ) {
-            Notification.requestPermission().then(function (permission) {
-                if (permission === 'granted') {
-                    new Notification(
-                        'Voce será notificado toda vez que uma sessão iniciar'
-                    );
-                }
-            });
-        }
+    if ('Notification' in window && Notification.permission !== 'granted'
+        && Notification.permission !== 'denied') {
+        Notification.requestPermission().then(permission => {
+            if (permission === 'granted') {
+                new Notification('Você será notificado toda vez que uma sessão iniciar')
+            }
+        });
     }
-
-    switchMode('pomodoro');
+    switchMode('pomodoro')
 });
 
 
