@@ -1,3 +1,4 @@
+// define o tempo de cada objeto
 const timer = {
     pomodoro: 0.1,
     shortBreak: 0.1,
@@ -11,6 +12,7 @@ let interval;
 const mainButton = document.getElementById('id-btn');
 const alterButton = document.getElementById('id-alter');
 
+// ao clicar no botão 'COMEÇAR' a função  handleTimeChange() não fica visível
 mainButton.addEventListener('click', () => {
     const { action } = mainButton.dataset;
     if (action === 'COMEÇAR') {
@@ -28,6 +30,7 @@ modeButtons.addEventListener('click', handleMode);
 const timeInput = document.querySelector('#time-input');
 timeInput.addEventListener('change', handleTimeChange);
 
+// Esta função calcula o tempo restante entre o tempo atual e um horário de término especificado.
 function getRemainingTime(endTime) {
     const time = Date.parse(new Date());
     const different = endTime - time;
@@ -43,6 +46,7 @@ function getRemainingTime(endTime) {
     };
 }
 
+// esta função é responsável por alterar o tempo do pomodoro de acordo com o desejado
 function handleTimeChange() {
     timer.pomodoro = timeInput.value;
     switchMode(timer.mode);
@@ -50,6 +54,7 @@ function handleTimeChange() {
 
 let count = 0;
 
+// função responsável por começar o timer
 function startTimer() {
     let { total } = timer.remainingTime;
     const counter = document.getElementById('id-counter');
@@ -98,6 +103,7 @@ function startTimer() {
     }, 1000);
 }
 
+// Esta função para o temporizador, limpando o intervalo que está executando o temporizador.
 function stopTimer() {
     clearInterval(interval);
 
