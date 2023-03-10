@@ -83,19 +83,22 @@ function startTimer() {
             }
 
             if (Notification.permission === 'granted') {
-                const text = 
+                const text =
                     timer.mode === 'pomodoro' ? 'Seu intervalo acabou!' : 'Tire um tempo para descansar';
                 new Notification(text);
             }
 
             document.querySelector(`[data-sound="${timer.mode}"]`).play();
 
+            count++;
+            counter.textContent = count;
+
             startTimer();
         }
     }, 1000);
 }
 
-function stopTimer(){
+function stopTimer() {
     clearInterval(interval);
 
     mainButton.dataset.action = 'COMEÇAR'
@@ -103,7 +106,7 @@ function stopTimer(){
     mainButton.classList.remove('active');
 }
 
-function updateClock(){
+function updateClock() {
     const { remainingTime } = timer;
     const minutes = `${remainingTime.minutes}`.padStart(2, '0');
     const seconds = `${remainingTime.seconds}`.padStart(2, '0');
@@ -113,7 +116,7 @@ function updateClock(){
     min.textContent = minutes;
     sec.textContent = seconds;
 
-    const text = 
+    const text =
         timer.mode === 'pomodoro' ? 'Volte ao trabalho' : 'Hora de descansar';
     document.title = `${minutes}:${seconds} — ${text}`;
 
@@ -121,7 +124,7 @@ function updateClock(){
     progress.value = timer[timer.mode] * 60 - timer.remainingTime.total;
 }
 
-function switchMode(mode){
+function switchMode(mode) {
     timer.mode = mode;
     timer.remainingTime = {
         total: timer[mode] * 60,
@@ -139,7 +142,7 @@ function switchMode(mode){
     updateClock();
 }
 
-function handleMode(event){
+function handleMode(event) {
     const { mode } = event.target.dataset;
 
     if (!mode) return;
@@ -150,7 +153,7 @@ function handleMode(event){
 
 document.addEventListener('DOMContentLoaded', () => {
     if ('Notification' in window) {
-        if(
+        if (
             Notification.permission !== 'granted' &&
             Notification.permission !== 'denied'
         ) {
