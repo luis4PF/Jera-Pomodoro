@@ -1,61 +1,47 @@
 body {
-    background-color: var(--pomodoro);
-    transition: background-color 1s ease;
+  background-color: var(--pomodoro);
+  transition: background-color 1s ease;
 }
 
 :root {
-    --pomodoro: hsl(224, 100%, 12%);
-    --shortBreak: hsl(0, 100%, 12%);
-    --longBreak: hsl(294, 100%, 17%);
+  --pomodoro: hsl(224, 100%, 12%);
+  --shortBreak: hsl(0, 100%, 12%);
+  --longBreak: hsl(294, 100%, 17%);
 }
 
 
 .pomodoro {
-    background-color: #000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    height: 600px;
-    width: 650px;
-    max-width: 100%;
-    padding-top: 15px;
-    padding-bottom: 25px;
-    padding-left: 35px;
-    padding-right: 35px;
-    border-color: black;
-    border-radius: 20px;
-    border-style: solid;
-    align-items: center;
-    text-align: center;
-}
-
-#id-alter {
-    color: #fff;
-    display: block;
-    font-weight: bold;
-    font-family: arial, sans-serif;
-}
-
-#id-alter.active {
-    color: white;
-    display: none;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 600px;
+  width: 650px;
+  max-width: 100%;
+  padding-top: 15px;
+  padding-bottom: 25px;
+  padding-left: 35px;
+  padding-right: 35px;
+  border-color: black;
+  border-radius: 20px;
+  border-style: solid;
+  align-items: center;
+  text-align: center;
 }
 
 .clock {
-    color: rgb(255, 255, 255);
-    margin-top: 50px;
-    margin-bottom: 30px;
-    font-size: 15rem;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: arial, sans-serif;
+  color: rgb(255, 255, 255);
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 15rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: arial, sans-serif;
 }
 
-
-/* CSS */
 .button-56 {
   align-items: center;
   background-color: #ffffff;
@@ -64,7 +50,7 @@ body {
   box-sizing: border-box;
   color: #111;
   cursor: pointer;
-  font-family: Inter,sans-serif;
+  font-family: Inter, sans-serif;
   font-size: 16px;
   font-weight: 400;
   height: 48px;
@@ -110,34 +96,50 @@ body {
 }
 
 .button-56.active {
-    background-color: #000000;
-    color: rgb(255, 255, 255);
-    box-shadow: #000;
-    
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  box-shadow: #000;
+
 }
 
 .input {
-    box-shadow: 10px 10px rgb(0, 0, 0) 0px 6px 0px;
-    font-size: 22px;
-    padding: 15px;
+  box-shadow: 10px 10px rgb(0, 0, 0) 0px 6px 0px;
+  font-size: 22px;
+  padding: 15px;
+  
+  display: block;
+  color: hsl(0, 0%, 0%);
+  width: 300px;
+  background-color: white;
+  border-style: none;
+  border-radius: 10px;
+  transition: color 0.5s ease-in-out 0s;
+}
 
-    color: hsl(0, 0%, 0%);
-    width: 300px;
-    background-color: white;
-    border-style: none;
-    border-radius: 10px;
-    transition: color 0.5s ease-in-out 0s;
+#id-alter {
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
+  font-family: arial, sans-serif;
+}
+
+#id-alter.active {
+  color: white;
+  display: none;
 }
 
 .div-input {
-    padding: 0px 12px;
-    color: rgb(255, 255, 255);
-    margin-top: 50px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    font-family: arial, sans-serif;
-    font-weight: bold;
+  color: rgb(255, 255, 255);
+  padding-bottom: 40px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: arial, sans-serif;
+  font-weight: bold;
 }
 
 /* CSS */
@@ -147,12 +149,12 @@ body {
   background-image: none;
   border: 1px solid #000;
   border-radius: 4px;
-  box-shadow: #fff 4px 4px 0 0,#000 4px 4px 0 1px;
+  box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: ITCAvantGardeStd-Bk,Arial,sans-serif;
+  font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
   font-size: 25px;
   font-weight: 400;
   line-height: 20px;
@@ -193,9 +195,9 @@ body {
 }
 
 .button-pomodoro.active {
-    border-color: #000000;
+  border-color: #000000;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
