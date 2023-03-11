@@ -2,16 +2,12 @@ body {
   background-color: var(--pomodoro);
   transition: background-color 1s ease;
 }
+  background: linear-gradient(0deg, rgb(0, 0, 0) , rgb(12, 160, 71) 0%);
 
-:root {
-  --pomodoro: hsl(224, 100%, 12%);
-  --shortBreak: hsl(0, 100%, 12%);
-  --longBreak: hsl(294, 100%, 17%);
 }
 
-
 .pomodoro {
-  background-color: #000;
+  background-color: #00000091;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -25,7 +21,6 @@ body {
   padding-right: 35px;
   border-color: black;
   border-radius: 20px;
-  border-style: solid;
   align-items: center;
   text-align: center;
 }
@@ -67,7 +62,7 @@ body {
 }
 
 .button-56:after {
-  background-color: #ffffff;
+  background-color: rgba(13, 181, 81, 1);
   border-radius: 8px;
   content: "";
   display: block;
@@ -106,7 +101,7 @@ body {
   box-shadow: 10px 10px rgb(0, 0, 0) 0px 6px 0px;
   font-size: 22px;
   padding: 15px;
-  
+
   display: block;
   color: hsl(0, 0%, 0%);
   width: 300px;
@@ -145,13 +140,13 @@ body {
 /* CSS */
 .button-50 {
   appearance: button;
-  background-color: #000;
+  background-color: #ffffff;
   background-image: none;
   border: 1px solid #000;
-  border-radius: 4px;
-  box-shadow: #fff 4px 4px 0 0, #000 4px 4px 0 1px;
+  border-radius: 15px;
+  box-shadow: rgba(13, 181, 81, 1) 4px 4px 0 0, #000 4px 4px 0 1px;
   box-sizing: border-box;
-  color: #fff;
+  color: #000000;
   cursor: pointer;
   display: inline-block;
   font-family: ITCAvantGardeStd-Bk, Arial, sans-serif;
@@ -184,7 +179,7 @@ body {
 }
 
 .button-50:not([disabled]):active {
-  box-shadow: #fff 2px 2px 0 0, #000 2px 2px 0 1px;
+  box-shadow: #05b91d 2px 2px 0 0, #000 2px 2px 0 1px;
   transform: translate(2px, 2px);
 }
 
