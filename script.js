@@ -1,9 +1,9 @@
 // define o tempo de cada objeto
 const timer = {
-    pomodoro: 1,
-    shortBreak: 1,
-    longBreak: 1,
-    longbreakInterval: 2,
+    pomodoro: 25,
+    shortBreak: 5,
+    longBreak: 10,
+    longbreakInterval: 4,
     sessions: 0,
 };
 

@@ -1,3 +1,9 @@
+*{
+  padding: 0;
+  margin: 0;
+  font-family: arial, sans-serif;
+}
+
 body {
   height: 714px;
   background: rgb(0, 0, 0);
@@ -5,35 +11,55 @@ body {
 
 }
 
+.container{
+  display: flex;
+  align-items: center;
+  margin: auto;
+}
+
 .pomodoro {
   background-color: #00000091;
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  top: 23rem;
+  left: 20%;
   transform: translate(-50%, -50%);
-  height: 600px;
+  height: 100%;
   width: 650px;
   max-width: 100%;
-  padding-top: 15px;
-  padding-bottom: 25px;
-  padding-left: 35px;
-  padding-right: 35px;
   border-color: black;
   border-radius: 20px;
   align-items: center;
   text-align: center;
 }
 
+header>div{
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 5px;
+}
+
 .clock {
   color: rgb(255, 255, 255);
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin: auto;
+  margin-top: 20px;
+  padding-bottom: 2rem;
   font-size: 15rem;
+  width: 100%;
   line-height: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: arial, sans-serif;
+}
+
+.clock>#id-alter {
+  padding: 5rem !important;
+}
+
+footer{
+  padding-bottom: 1rem;
 }
 
 .button-56 {
@@ -108,6 +134,12 @@ body {
   border-style: none;
   border-radius: 10px;
   transition: color 0.5s ease-in-out 0s;
+  text-align: center;
+  font-weight: 500;
+}
+
+.button{
+  margin-right: 1rem;
 }
 
 #id-alter {
@@ -194,4 +226,10 @@ body {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 552px) {
+  .clock {
+    font-size: 10rem;
+  }
 }
