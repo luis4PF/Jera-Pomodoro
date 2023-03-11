@@ -1,7 +1,6 @@
 body {
-  background-color: var(--pomodoro);
-  transition: background-color 1s ease;
-}
+  height: 714px;
+  background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgb(0, 0, 0) , rgb(12, 160, 71) 0%);
 
 }
