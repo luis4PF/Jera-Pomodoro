@@ -10,43 +10,43 @@
 </head>
 
 <body>
-    <main class="app">
-        <progress style="display: none;" id="id-progress" value="0"></progress>
-        <div class="pomodoro">
-            <div class="button-group buttons" id="buttons">
-                <button data-mode="pomodoro" 
-                class=" button active button-56" id="id-pomodoro">
-                    POMODORO
-                </button>
-                <button data-mode="shortBreak" 
-                class=" button active button-56" id="id-shortbrake">
-                    INTERVALO
-                </button>
-                <button data-mode="longBreak" 
-                class=" button active button-56" id="id-longbrake">
-                    INTERVALO LONGO
-                </button>
-            </div>
-
-            <div class="clock" id="id-clock">
-                <span id="id-min">1</span>
-                <span class="separator">:</span>
-                <span id="id-sec">00</span>
-            </div>
-            <div id="id-alter">
-                <label style="padding-bottom: 10px;" for="time-input">INSIRA O TEMPO DESEJADO</label>
-                <input class="input" 
-                type="number" id="time-input" min="1" max="60" value="25">
-            </div>
-            <div class="div-input">
-                <label for="">POMODOROS DIÁRIOS: </label>
-                <span style="padding-left: 5px;" id="id-counter"></span>
-            </div>
+    <div class="container">
+        <div class="pomodoro app" id="id-progress" value="0">
+            <header>
+                <div class="button-group buttons" id="buttons">
+                    <button data-mode="pomodoro" class=" button active button-56" id="id-pomodoro">
+                        POMODORO
+                    </button>
+                    <button data-mode="shortBreak" class=" button active button-56" id="id-shortbrake">
+                        INTERVALO
+                    </button>
+                    <button data-mode="longBreak" class=" button active button-56" id="id-longbrake">
+                        INTERVALO LONGO
+                    </button>
+                </div>
+            </header>
+            <main>
+                <div class="clock" id="id-clock">
+                    <span id="id-min">25</span>
+                    <span class="separator">:</span>
+                    <span id="id-sec">00</span>
+                </div>
+                <div id="id-alter">
+                    <label style="padding-bottom: 10px;" for="time-input">INSIRA O TEMPO DESEJADO</label>
+                    <input class="input" type="number" id="time-input" min="1" max="60" value="25">
+                </div>
+            </main>
+            <footer>
+                <div class="div-input">
+                    <label for="">POMODOROS DIÁRIOS: </label>
+                    <span style="padding-left: 5px;" id="id-counter"></span>
+                </div>
                 <button class="button-50" data-action="COMEÇAR" id="id-btn">
                     COMEÇAR
                 </button>
+            </footer>
         </div>
-    </main>
+    </div>
     <div class="hidden">
         <audio src="backtowork.wav" data-sound="pomodoro"></audio>
         <audio src="breaktime.wav" data-sound="shortBreak"></audio>
